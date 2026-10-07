@@ -1,0 +1,101 @@
+{
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "mapping": [
+    {
+      "mcp_tool": "seedream_list_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Model/action selectors and the API reference; informational guidance does not submit a request."
+    },
+    {
+      "mcp_tool": "seedream_list_sizes",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Model/action selectors and the API reference; informational guidance does not submit a request."
+    },
+    {
+      "mcp_tool": "seedream_get_task",
+      "dify_tools": [
+        "seedream_task_retrieve"
+      ],
+      "parameters": {
+        "task_id": "task_id"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve"
+    },
+    {
+      "mcp_tool": "seedream_get_tasks_batch",
+      "dify_tools": [
+        "seedream_tasks_retrieve_batch"
+      ],
+      "parameters": {
+        "task_ids": "ids"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve_batch"
+    },
+    {
+      "mcp_tool": "seedream_generate_image",
+      "dify_tools": [
+        "seedream_generate_image"
+      ],
+      "parameters": {
+        "prompt": "prompt",
+        "model": "model",
+        "size": "size",
+        "sequential_image_generation": "sequential_image_generation",
+        "sequential_image_generation_options": "sequential_image_generation_options",
+        "response_format": "URL output for Dify media",
+        "watermark": "watermark",
+        "output_format": "output_format",
+        "callback_url": "callback_url",
+        "tools": "tools",
+        "optimize_prompt_options": "optimize_prompt_options"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "seedream_edit_image",
+      "dify_tools": [
+        "seedream_edit_image"
+      ],
+      "parameters": {
+        "prompt": "prompt",
+        "image": "image",
+        "model": "model",
+        "size": "size",
+        "response_format": "URL output for Dify media",
+        "watermark": "watermark",
+        "output_format": "output_format",
+        "sequential_image_generation": "sequential_image_generation",
+        "sequential_image_generation_options": "sequential_image_generation_options",
+        "tools": "tools",
+        "optimize_prompt_options": "optimize_prompt_options",
+        "background": "background",
+        "callback_url": "callback_url"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "seedream_decompose_image",
+      "dify_tools": [
+        "seedream_decompose_image"
+      ],
+      "parameters": {
+        "image": "image",
+        "prompt": "prompt",
+        "size": "size",
+        "output_format": "output_format",
+        "watermark": "watermark",
+        "callback_url": "callback_url"
+      },
+      "unresolved": [],
+      "note": ""
+    }
+  ]
+}

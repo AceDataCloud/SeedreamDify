@@ -8,21 +8,23 @@ description:
   human:
     en_US: Generate image(s) with Ace Data Cloud Seedream Images API.
     zh_Hans: 通过 Ace Data Cloud Seedream Images API 生成图片。
-  llm: Generate image(s) from prompt via Ace Data Cloud Seedream Images API. Generation
-    returns a task ID. Query the same task until complete; never resubmit a pending
-    generation.
+  llm: Generate image(s) with Ace Data Cloud Seedream Images API. For asynchronous
+    results, preserve task_id and use the task retrieval tool until completion. A
+    successful submission is not completed output.
 parameters:
 - name: model
   type: select
   required: false
+  form: form
   label:
     en_US: Model
     zh_Hans: 模型
   human_description:
-    en_US: Select the current API model for this operation.
+    en_US: Select a model currently supported by this API. Availability and pricing
+      depend on the chosen model.
     zh_Hans: 完整模型 ID。5.0 Pro 支持单图、精确编辑、透明背景和图层拆分；5.0 Lite 支持单图、组图、流式输出与联网搜索。
-  llm_description: Select the current API model for this operation.
-  form: form
+  llm_description: Select a model currently supported by this API. Availability and
+    pricing depend on the chosen model.
   default: doubao-seedream-5-0-lite-260128
   options:
   - value: doubao-seedream-5-0-pro-260628
@@ -44,49 +46,51 @@ parameters:
 - name: prompt
   type: string
   required: false
+  form: llm
   label:
     en_US: Prompt
     zh_Hans: 提示词
   human_description:
     en_US: Text prompt used to generate the image(s).
-    zh_Hans: 用于生成图片的提示词。
+    zh_Hans: 图片生成或编辑提示词。仅在 5.0 Pro 图层拆分模式下可省略；省略时自动识别并拆分主要元素。
   llm_description: Text prompt used to generate the image(s).
-  form: llm
 - name: image
   type: string
   required: false
+  form: form
   label:
     en_US: Image
     zh_Hans: 参考图片
   human_description:
-    en_US: Set image.
+    en_US: Set image. Enter a JSON array or object where applicable.
     zh_Hans: 参考图片，支持单个 URL/Base64 字符串或字符串数组。5.0 Pro 普通模式最多 10 张、图层拆分恰好 1 张；5.0 Lite/4.x
-      最多 14 张。单张图片最大 30MB。
-  llm_description: Set image.
-  form: form
+      最多 14 张。单张图片最大 30MB。 数组或对象请使用 JSON 格式。
+  llm_description: Set image. Enter a JSON array or object where applicable.
 - name: size
   type: string
   required: false
+  form: form
   label:
     en_US: Size
     zh_Hans: 尺寸
   human_description:
     en_US: Optional image size like 1K/2K/4K or 2048x2048 depending on model.
-    zh_Hans: 可选图像尺寸，如 1K/2K/4K 或 2048x2048（取决于模型）。
+    zh_Hans: 输出尺寸。5.0 Pro 普通模式支持 1K/1.5K/2K 或合法像素值，拆层支持 auto/1K/1.5K/2K；5.0 Lite 支持
+      2K/3K/4K 或合法像素值。
   llm_description: Optional image size like 1K/2K/4K or 2048x2048 depending on model.
-  form: form
   default: 2K
 - name: sequential_image_generation
   type: select
   required: false
+  form: form
   label:
     en_US: Sequential image generation
     zh_Hans: 组图
   human_description:
     en_US: Optional. Use disabled/auto depending on model support.
-    zh_Hans: 可选，根据模型支持情况填写 disabled/auto。
+    zh_Hans: 默认值为 `disabled`。设置为 `auto` 可让模型生成一组风格连贯的相关图像（多图一致性，跨帧共享角色、风格与细节）。仅支持
+      `doubao-seedream-5.0-lite`、`doubao-seedream-4.5` 和 `doubao-seedream-4.0`。
   llm_description: Optional. Use disabled/auto depending on model support.
-  form: form
   options:
   - value: auto
     label:
@@ -99,37 +103,39 @@ parameters:
 - name: sequential_image_generation_options
   type: string
   required: false
+  form: form
   label:
     en_US: Sequential Image Generation Options
     zh_Hans: 组图设置
   human_description:
-    en_US: Set sequential image generation options. Enter a JSON object.
+    en_US: Set sequential image generation options. Enter a JSON object. Enter a JSON
+      array or object where applicable.
     zh_Hans: 批量图像生成的可调参数。仅在 `sequential_image_generation=auto` 时生效。仅支持 `doubao-seedream-5.0-lite`、`doubao-seedream-4.5`
-      和 `doubao-seedream-4.0`。 请填写 JSON 对象。
-  llm_description: Set sequential image generation options. Enter a JSON object.
-  form: form
+      和 `doubao-seedream-4.0`。 数组或对象请使用 JSON 格式。
+  llm_description: Set sequential image generation options. Enter a JSON object. Enter
+    a JSON array or object where applicable.
 - name: watermark
   type: boolean
   required: false
+  form: form
   label:
     en_US: Watermark
     zh_Hans: 水印
   human_description:
     en_US: Optional. Add watermark or not.
-    zh_Hans: 可选，是否添加水印。
+    zh_Hans: 是否添加 AI 生成水印，默认为 `true`。
   llm_description: Optional. Add watermark or not.
-  form: form
 - name: output_format
   type: select
   required: false
+  form: form
   label:
     en_US: Output format
     zh_Hans: 输出格式
   human_description:
     en_US: 'Seedream 5.0 Pro/Lite: jpeg or png.'
-    zh_Hans: Seedream 5.0 Pro/Lite 支持 jpeg 或 png。
+    zh_Hans: 输出图像的文件格式，默认为 `jpeg`。仅支持 `doubao-seedream-5.0-pro` 和 `doubao-seedream-5.0-lite`。
   llm_description: 'Seedream 5.0 Pro/Lite: jpeg or png.'
-  form: form
   options:
   - value: jpeg
     label:
@@ -142,30 +148,56 @@ parameters:
 - name: tools
   type: string
   required: false
+  form: form
   label:
     en_US: Tools
     zh_Hans: 搜索工具
   human_description:
-    en_US: Set tools. Enter a JSON array.
-    zh_Hans: 模型可调用的工具列表。目前仅支持 `web_search`。仅适用于 `doubao-seedream-5.0-lite`。 请填写 JSON
-      数组。
-  llm_description: Set tools. Enter a JSON array.
-  form: form
+    en_US: Set tools. Enter a JSON array. Enter a JSON array or object where applicable.
+    zh_Hans: 模型可调用的工具列表。目前仅支持 `web_search`。仅适用于 `doubao-seedream-5.0-lite`。 数组或对象请使用
+      JSON 格式。
+  llm_description: Set tools. Enter a JSON array. Enter a JSON array or object where
+    applicable.
 - name: optimize_prompt_options
   type: string
   required: false
+  form: form
   label:
     en_US: Optimize Prompt Options
     zh_Hans: 提示词优化设置
   human_description:
-    en_US: Set optimize prompt options. Enter a JSON object.
+    en_US: Set optimize prompt options. Enter a JSON object. Enter a JSON array or
+      object where applicable.
     zh_Hans: 提示词优化配置。5.0 Pro 支持 standard/fast；5.0 Lite 与 4.5 仅支持 standard；4.0 支持 standard/fast。
-      请填写 JSON 对象。
-  llm_description: Set optimize prompt options. Enter a JSON object.
+      请填写 JSON 对象。 数组或对象请使用 JSON 格式。
+  llm_description: Set optimize prompt options. Enter a JSON object. Enter a JSON
+    array or object where applicable.
+- name: callback_url
+  type: string
+  required: false
   form: form
+  label:
+    en_US: Callback Url
+    zh_Hans: 回调 URL
+  human_description:
+    en_US: Set callback url for this operation.
+    zh_Hans: 图像生成完成后的回调 URL，该 URL 须可从公网访问。指定后接口将立即返回，生成结果就绪时会异步推送至此回调地址。
+  llm_description: Set callback url for this operation.
+- name: layer_decomposition
+  type: boolean
+  required: false
+  form: form
+  label:
+    en_US: Layer Decomposition
+    zh_Hans: 图层分解
+  human_description:
+    en_US: Set layer decomposition for this operation.
+    zh_Hans: 设置图层分解。
+  llm_description: Set layer decomposition for this operation.
 - name: background
   type: select
   required: false
+  form: form
   label:
     en_US: Background
     zh_Hans: 背景
@@ -173,7 +205,6 @@ parameters:
     en_US: Set background.
     zh_Hans: 5.0 Pro 单图编辑的背景模式。transparent 仅支持输入一张带透明通道的 PNG，且输出必须为 PNG；opaque 为普通不透明背景。
   llm_description: Set background.
-  form: form
   options:
   - value: transparent
     label:
