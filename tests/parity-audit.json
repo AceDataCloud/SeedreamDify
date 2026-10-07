@@ -1,0 +1,96 @@
+{
+  "backend_revision": "fa94598267a82545fb1afed6ee26bafd6cbb9ca7",
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "tools": [
+    {
+      "tool": "seedream_generate_image",
+      "method": "POST",
+      "path": "/seedream/images",
+      "parameters": [
+        "model",
+        "prompt",
+        "image",
+        "size",
+        "sequential_image_generation",
+        "sequential_image_generation_options",
+        "watermark",
+        "output_format",
+        "tools",
+        "optimize_prompt_options",
+        "callback_url",
+        "layer_decomposition",
+        "background"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/86ad30f3-0bc8-4b9b-b019-b9fa5b05672e.json"
+    },
+    {
+      "tool": "seedream_edit_image",
+      "method": "POST",
+      "path": "/seedream/images",
+      "parameters": [
+        "model",
+        "prompt",
+        "image",
+        "size",
+        "sequential_image_generation",
+        "sequential_image_generation_options",
+        "watermark",
+        "output_format",
+        "tools",
+        "optimize_prompt_options",
+        "callback_url",
+        "layer_decomposition",
+        "background"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/86ad30f3-0bc8-4b9b-b019-b9fa5b05672e.json"
+    },
+    {
+      "tool": "seedream_decompose_image",
+      "method": "POST",
+      "path": "/seedream/images",
+      "parameters": [
+        "prompt",
+        "image",
+        "size",
+        "sequential_image_generation",
+        "sequential_image_generation_options",
+        "watermark",
+        "output_format",
+        "tools",
+        "optimize_prompt_options",
+        "callback_url",
+        "background"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/86ad30f3-0bc8-4b9b-b019-b9fa5b05672e.json"
+    },
+    {
+      "tool": "seedream_task_retrieve",
+      "method": "POST",
+      "path": "/seedream/tasks",
+      "parameters": [
+        "task_id",
+        "wait_seconds"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/a89ab5c9-f956-42b5-a867-abb3d00d2f75.json"
+    },
+    {
+      "tool": "seedream_tasks_retrieve_batch",
+      "method": "POST",
+      "path": "/seedream/tasks",
+      "parameters": [
+        "ids"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/a89ab5c9-f956-42b5-a867-abb3d00d2f75.json"
+    }
+  ],
+  "mcp_scope": "seedream",
+  "notes": [
+    "Informational MCP model/action lists are represented by tool dropdowns and README capability tables.",
+    "GPT Image covers image-generation/editing/task capabilities of the broader OpenAI MCP; chat is supplied by ModelProviderDify."
+  ]
+}
