@@ -62,16 +62,10 @@ parameters:
     en_US: Image
     zh_Hans: 参考图片
   human_description:
-    en_US: Set image. Enter a JSON array or object where applicable. Enter a JSON
-      array or object where applicable. Enter a JSON array or object where applicable.
-      Enter a JSON array or object where applicable. Enter a JSON array or object
-      where applicable. Enter a JSON array or object where applicable.
+    en_US: Set image. Enter a JSON array or object where applicable.
     zh_Hans: 参考图片，支持单个 URL/Base64 字符串或字符串数组。5.0 Pro 普通模式最多 10 张、图层拆分恰好 1 张；5.0 Lite/4.x
       最多 14 张。单张图片最大 30MB。 数组或对象请使用 JSON 格式。
-  llm_description: Set image. Enter a JSON array or object where applicable. Enter
-    a JSON array or object where applicable. Enter a JSON array or object where applicable.
-    Enter a JSON array or object where applicable. Enter a JSON array or object where
-    applicable. Enter a JSON array or object where applicable.
+  llm_description: Set image. Enter a JSON array or object where applicable.
 - name: size
   type: string
   required: false
@@ -115,17 +109,11 @@ parameters:
     zh_Hans: 组图设置
   human_description:
     en_US: Set sequential image generation options. Enter a JSON object. Enter a JSON
-      array or object where applicable. Enter a JSON array or object where applicable.
-      Enter a JSON array or object where applicable. Enter a JSON array or object
-      where applicable. Enter a JSON array or object where applicable. Enter a JSON
       array or object where applicable.
     zh_Hans: 批量图像生成的可调参数。仅在 `sequential_image_generation=auto` 时生效。仅支持 `doubao-seedream-5.0-lite`、`doubao-seedream-4.5`
       和 `doubao-seedream-4.0`。 数组或对象请使用 JSON 格式。
   llm_description: Set sequential image generation options. Enter a JSON object. Enter
-    a JSON array or object where applicable. Enter a JSON array or object where applicable.
-    Enter a JSON array or object where applicable. Enter a JSON array or object where
-    applicable. Enter a JSON array or object where applicable. Enter a JSON array
-    or object where applicable.
+    a JSON array or object where applicable.
 - name: watermark
   type: boolean
   required: false
@@ -166,15 +154,10 @@ parameters:
     zh_Hans: 搜索工具
   human_description:
     en_US: Set tools. Enter a JSON array. Enter a JSON array or object where applicable.
-      Enter a JSON array or object where applicable. Enter a JSON array or object
-      where applicable. Enter a JSON array or object where applicable. Enter a JSON
-      array or object where applicable. Enter a JSON array or object where applicable.
     zh_Hans: 模型可调用的工具列表。目前仅支持 `web_search`。仅适用于 `doubao-seedream-5.0-lite`。 数组或对象请使用
       JSON 格式。
   llm_description: Set tools. Enter a JSON array. Enter a JSON array or object where
-    applicable. Enter a JSON array or object where applicable. Enter a JSON array
-    or object where applicable. Enter a JSON array or object where applicable. Enter
-    a JSON array or object where applicable. Enter a JSON array or object where applicable.
+    applicable.
 - name: optimize_prompt_options
   type: string
   required: false
@@ -184,18 +167,11 @@ parameters:
     zh_Hans: 提示词优化设置
   human_description:
     en_US: Set optimize prompt options. Enter a JSON object. Enter a JSON array or
-      object where applicable. Enter a JSON array or object where applicable. Enter
-      a JSON array or object where applicable. Enter a JSON array or object where
-      applicable. Enter a JSON array or object where applicable. Enter a JSON array
-      or object where applicable.
+      object where applicable.
     zh_Hans: 提示词优化配置。5.0 Pro 支持 standard/fast；5.0 Lite 与 4.5 仅支持 standard；4.0 支持 standard/fast。
-      请填写 JSON 对象。 数组或对象请使用 JSON 格式。 数组或对象请使用 JSON 格式。 数组或对象请使用 JSON 格式。 数组或对象请使用
-      JSON 格式。 数组或对象请使用 JSON 格式。 数组或对象请使用 JSON 格式。
+      请填写 JSON 对象。 数组或对象请使用 JSON 格式。
   llm_description: Set optimize prompt options. Enter a JSON object. Enter a JSON
-    array or object where applicable. Enter a JSON array or object where applicable.
-    Enter a JSON array or object where applicable. Enter a JSON array or object where
-    applicable. Enter a JSON array or object where applicable. Enter a JSON array
-    or object where applicable.
+    array or object where applicable.
 - name: callback_url
   type: string
   required: false

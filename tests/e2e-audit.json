@@ -1,0 +1,45 @@
+{
+  "tested_at": "2026-10-07T08:53:39.746940+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "transport": "official remote-debug; signature verification enabled",
+  "browser_test_run": true,
+  "unit_contract_tests": "28 passed, 1 warning in 0.61s",
+  "marketplace_toolkit_passed": true,
+  "package_sha256": "977b1ca27001fe5cd45422d85895dd0db27cc06b5fcf5840dd37d9045ed9e0f2",
+  "exact_package_serverless_install_passed": true,
+  "marketplace_install_tested": false,
+  "cloud_tested": false,
+  "cases": [
+    {
+      "case": "Seedream Audit Batch",
+      "tool": "seedream_tasks_retrieve_batch",
+      "workflow_run_id": "bdc98b71-97c7-4280-afbd-8b6ad54e44d5",
+      "workflow_status": "succeeded",
+      "service_status": "succeeded",
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [
+        "https://platform2.cdn.acedata.cloud/seedream/00355681-7e81-49a4-a8fc-d2165fe1e9fd.jpg"
+      ],
+      "error": null,
+      "new_submission": false,
+      "media_verification": [
+        {
+          "case": "Seedream Audit Batch",
+          "size": 374596,
+          "sha256": "2de9f2a72c1fc787764e2abad346f05d6fd2c5c883e1e25d474356b2bde3f1f6",
+          "width": 2048,
+          "height": 2048,
+          "format": "JPEG"
+        }
+      ],
+      "result_fields": [
+        "items"
+      ],
+      "screenshot": "evidence/seedream-audit-batch.png",
+      "workflow": "evidence/seedream-audit-batch-workflow.json"
+    }
+  ],
+  "primary_blocked": false,
+  "scope_note": "Recorded cases only. Batch regressions reuse earlier paid successful tasks; those media generations are not billed or claimed as new. New paid calls have separate usage reconciliation. Optional untested models/actions are not claimed as passed; original failures and their corrections are preserved."
+}
