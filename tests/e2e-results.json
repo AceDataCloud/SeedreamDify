@@ -1,0 +1,54 @@
+{
+  "tested_at": "2026-10-07T06:27:25.829164+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "transport": "official remote-debug; signature verification true",
+  "browser_test_run": true,
+  "marketplace_install_tested": false,
+  "cloud_tested": false,
+  "cases": [
+    {
+      "case": "Seedream Dify E2E",
+      "operation": "seedream_generate_image",
+      "workflow_run_id": "683d0b33-2754-410f-b736-e3ec8c8a7c36",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "task_id": "78a88533-289e-404f-a05b-21341a1d56fc",
+      "trace_id": "cea41f53-3231-4fb7-b454-33521de9e3e7",
+      "media_urls": [
+        "https://platform2.cdn.acedata.cloud/seedream/00355681-7e81-49a4-a8fc-d2165fe1e9fd.jpg"
+      ],
+      "output": [
+        {
+          "bounding_box": null,
+          "description": null,
+          "image_url": "https://platform2.cdn.acedata.cloud/seedream/00355681-7e81-49a4-a8fc-d2165fe1e9fd.jpg",
+          "name": null,
+          "output_format": null,
+          "prompt": "A studio headshot of a fictional adult person with short dark hair, looking straight at the camera, neutral expression, plain light gray background, natural lighting, photorealistic, no text.",
+          "size": "2048x2048",
+          "z_index": null
+        }
+      ],
+      "billing": {
+        "id": "eaa23d57-e307-423a-add7-8bbd2fa82e36",
+        "trace_id": "cea41f53-3231-4fb7-b454-33521de9e3e7",
+        "status_code": 200,
+        "deducted_amount": 0.333,
+        "created_at": "2026-10-07T05:40:32.999751Z"
+      },
+      "media_verification": [
+        {
+          "case": "Seedream Dify E2E",
+          "size": 374596,
+          "sha256": "2de9f2a72c1fc787764e2abad346f05d6fd2c5c883e1e25d474356b2bde3f1f6",
+          "width": 2048,
+          "height": 2048,
+          "format": "JPEG"
+        }
+      ],
+      "screenshot": "evidence/seedream-dify-e2e.png",
+      "workflow": "evidence/seedream-dify-e2e-workflow.json"
+    }
+  ],
+  "scope_note": "These completed cases establish the primary plugin operation. Additional exposed operations require their own case before claiming full coverage."
+}
