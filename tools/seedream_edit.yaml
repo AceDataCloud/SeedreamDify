@@ -1,0 +1,206 @@
+identity:
+  name: seedream_edit_image
+  author: acedatacloud
+  label:
+    en_US: Seedream Edit Image
+    zh_Hans: Seedream 编辑图片
+description:
+  human:
+    en_US: Edit image(s) with Ace Data Cloud Seedream Images API.
+    zh_Hans: 通过 Ace Data Cloud Seedream Images API 编辑图片。
+  llm: Edit image(s) with a prompt and image_urls via Ace Data Cloud Seedream Images
+    API. Generation returns a task ID. Query the same task until complete; never resubmit
+    a pending generation.
+parameters:
+- name: model
+  type: select
+  required: false
+  label:
+    en_US: Model
+    zh_Hans: 模型
+  human_description:
+    en_US: Select the current API model for this operation.
+    zh_Hans: 完整模型 ID。5.0 Pro 支持单图、精确编辑、透明背景和图层拆分；5.0 Lite 支持单图、组图、流式输出与联网搜索。
+  llm_description: Select the current API model for this operation.
+  form: form
+  default: doubao-seedream-5-0-lite-260128
+  options:
+  - value: doubao-seedream-5-0-pro-260628
+    label:
+      en_US: doubao-seedream-5-0-pro-260628
+      zh_Hans: doubao-seedream-5-0-pro-260628
+  - value: doubao-seedream-5-0-lite-260128
+    label:
+      en_US: doubao-seedream-5-0-lite-260128
+      zh_Hans: doubao-seedream-5-0-lite-260128
+  - value: doubao-seedream-4-0-250828
+    label:
+      en_US: doubao-seedream-4-0-250828
+      zh_Hans: doubao-seedream-4-0-250828
+  - value: doubao-seedream-4-5-251128
+    label:
+      en_US: doubao-seedream-4-5-251128
+      zh_Hans: doubao-seedream-4-5-251128
+- name: prompt
+  type: string
+  required: false
+  label:
+    en_US: Prompt
+    zh_Hans: 提示词
+  human_description:
+    en_US: Text prompt describing the edit.
+    zh_Hans: 描述编辑目标的提示词。
+  llm_description: Text prompt describing the edit.
+  form: llm
+- name: image
+  type: string
+  required: false
+  label:
+    en_US: Image
+    zh_Hans: 参考图片
+  human_description:
+    en_US: Set image.
+    zh_Hans: 参考图片，支持单个 URL/Base64 字符串或字符串数组。5.0 Pro 普通模式最多 10 张、图层拆分恰好 1 张；5.0 Lite/4.x
+      最多 14 张。单张图片最大 30MB。
+  llm_description: Set image.
+  form: form
+- name: size
+  type: string
+  required: false
+  label:
+    en_US: Size
+    zh_Hans: 尺寸
+  human_description:
+    en_US: Optional image size.
+    zh_Hans: 可选图像尺寸。
+  llm_description: Optional image size.
+  form: form
+  default: 2K
+- name: sequential_image_generation
+  type: select
+  required: false
+  label:
+    en_US: Sequential image generation
+    zh_Hans: 组图
+  human_description:
+    en_US: Optional. Use disabled/auto depending on model support.
+    zh_Hans: 可选，根据模型支持情况填写 disabled/auto。
+  llm_description: Optional. Use disabled/auto depending on model support.
+  form: form
+  options:
+  - value: auto
+    label:
+      en_US: auto
+      zh_Hans: auto
+  - value: disabled
+    label:
+      en_US: disabled
+      zh_Hans: disabled
+- name: sequential_image_generation_options
+  type: string
+  required: false
+  label:
+    en_US: Sequential Image Generation Options
+    zh_Hans: 组图设置
+  human_description:
+    en_US: Set sequential image generation options. Enter a JSON object.
+    zh_Hans: 批量图像生成的可调参数。仅在 `sequential_image_generation=auto` 时生效。仅支持 `doubao-seedream-5.0-lite`、`doubao-seedream-4.5`
+      和 `doubao-seedream-4.0`。 请填写 JSON 对象。
+  llm_description: Set sequential image generation options. Enter a JSON object.
+  form: form
+- name: watermark
+  type: boolean
+  required: false
+  label:
+    en_US: Watermark
+    zh_Hans: 水印
+  human_description:
+    en_US: Optional. Add watermark or not.
+    zh_Hans: 可选，是否添加水印。
+  llm_description: Optional. Add watermark or not.
+  form: form
+- name: output_format
+  type: select
+  required: false
+  label:
+    en_US: Output format
+    zh_Hans: 输出格式
+  human_description:
+    en_US: 'Seedream 5.0 Pro/Lite: jpeg or png.'
+    zh_Hans: Seedream 5.0 Pro/Lite 支持 jpeg 或 png。
+  llm_description: 'Seedream 5.0 Pro/Lite: jpeg or png.'
+  form: form
+  options:
+  - value: jpeg
+    label:
+      en_US: jpeg
+      zh_Hans: jpeg
+  - value: png
+    label:
+      en_US: png
+      zh_Hans: png
+- name: tools
+  type: string
+  required: false
+  label:
+    en_US: Tools
+    zh_Hans: 搜索工具
+  human_description:
+    en_US: Set tools. Enter a JSON array.
+    zh_Hans: 模型可调用的工具列表。目前仅支持 `web_search`。仅适用于 `doubao-seedream-5.0-lite`。 请填写 JSON
+      数组。
+  llm_description: Set tools. Enter a JSON array.
+  form: form
+- name: optimize_prompt_options
+  type: string
+  required: false
+  label:
+    en_US: Optimize Prompt Options
+    zh_Hans: 提示词优化设置
+  human_description:
+    en_US: Set optimize prompt options. Enter a JSON object.
+    zh_Hans: 提示词优化配置。5.0 Pro 支持 standard/fast；5.0 Lite 与 4.5 仅支持 standard；4.0 支持 standard/fast。
+      请填写 JSON 对象。
+  llm_description: Set optimize prompt options. Enter a JSON object.
+  form: form
+- name: background
+  type: select
+  required: false
+  label:
+    en_US: Background
+    zh_Hans: 背景
+  human_description:
+    en_US: Pro-only transparent or opaque background mode.
+    zh_Hans: 仅 Pro 支持 transparent 或 opaque。
+  llm_description: Pro-only transparent or opaque background mode.
+  form: form
+  options:
+  - value: transparent
+    label:
+      en_US: transparent
+      zh_Hans: transparent
+  - value: opaque
+    label:
+      en_US: opaque
+      zh_Hans: opaque
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    success:
+      type: boolean
+    task_id:
+      type: string
+    trace_id:
+      type: string
+    media_urls:
+      type: array
+      items:
+        type: string
+    data: {}
+    result:
+      type: object
+extra:
+  python:
+    source: tools/seedream_edit.py
