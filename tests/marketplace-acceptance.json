@@ -1,0 +1,31 @@
+{
+  "repo": "SeedreamDify",
+  "marketplace_url": "https://marketplace.dify.ai/plugin/acedatacloud/seedream",
+  "identifier": "acedatacloud/seedream:0.0.1@0ff9239be606b9b716679446e5dc44068284e79772a41511101b47bce01a556f",
+  "installation_source": "marketplace",
+  "workflow_id": "dd61bafe-99c3-448f-9922-67c46e659e8d",
+  "workflow_status": "succeeded",
+  "service_status": "succeeded",
+  "case": "Seedream Marketplace Installed Transport Readback",
+  "media_urls": [
+    "https://platform2.cdn.acedata.cloud/seedream/00355681-7e81-49a4-a8fc-d2165fe1e9fd.jpg"
+  ],
+  "outputs": {
+    "status": "succeeded",
+    "success": true,
+    "task_id": "",
+    "trace_id": ""
+  },
+  "icon_matches_source": true,
+  "paid_generation_reused": true,
+  "prior_media_decode_evidence": true,
+  "media_readback_status": "completed existing task output; generation not repeated",
+  "tested_at": "2026-10-08T01:26:57.567309+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "signature_verification_enabled": true,
+  "remote_debug_used": false,
+  "marketplace_install_tested": true,
+  "cloud_tested": false,
+  "screenshot": "evidence/marketplace-20261008.png",
+  "workflow": "evidence/marketplace-20261008-workflow.json"
+}
