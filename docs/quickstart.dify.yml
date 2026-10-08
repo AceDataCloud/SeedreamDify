@@ -6,12 +6,7 @@ app:
   mode: workflow
   name: Seedream Step-by-step Tutorial
   use_icon_as_answer_icon: false
-dependencies:
-- current_identifier: null
-  type: marketplace
-  value:
-    marketplace_plugin_unique_identifier: acedatacloud/seedream:0.0.1@0ff9239be606b9b716679446e5dc44068284e79772a41511101b47bce01a556f
-    version: null
+dependencies: []
 kind: app
 version: 0.7.0
 workflow:
@@ -86,7 +81,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/seedream:0.0.1@0ff9239be606b9b716679446e5dc44068284e79772a41511101b47bce01a556f
         provider_id: acedatacloud/seedream/seedream
         provider_name: acedatacloud/seedream/seedream
         provider_type: builtin
@@ -132,7 +126,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/seedream:0.0.1@0ff9239be606b9b716679446e5dc44068284e79772a41511101b47bce01a556f
         provider_id: acedatacloud/seedream/seedream
         provider_name: acedatacloud/seedream/seedream
         provider_type: builtin
